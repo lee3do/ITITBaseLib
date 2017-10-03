@@ -1,0 +1,21 @@
+<resources>
+    <attr name="layout_width" format="integer"/>
+    <attr name="layout_height" format="integer"/>
+    <attr name="animatedVisibility" format="integer"/>
+    <attr name="local_uri" format="string"/>
+    <attr name="longClick" format="reference"/>
+
+    <attr name="img_src" format="integer"/>
+
+    <declare-styleable name="View">
+        <attr name="longClick" />
+        <attr name="layout_width" />
+        <attr name="layout_height" />
+    </declare-styleable>
+
+    <declare-styleable name="ImageView">
+        <attr name="local_uri"/>
+        <attr name="animatedVisibility" />
+        <attr name="img_src" />
+    </declare-styleable>
+</resources>

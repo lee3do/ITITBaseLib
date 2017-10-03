@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#05a974</color>
+
+    <color name="default_gray">#f4f4f4</color>
+    <color name="searchmenu">#4BA1EE</color>
+    <color name="login_button">#0099ff</color>
+    <color name="search_view_hint_color">#e3f2fd</color>
+    <color name="brand_item">#252529</color>
+    <color name="brand_item_s">#ef1212</color>
+    <color name="red">#ef1212</color>
+    <color name="line_color">#efeff4</color>
+
+
+    <color name="bg_app">#F5F5f5</color>
+    <color name="tab_unselect">#c9c9c9</color>
+    <color name="tab_select">#ef1212</color>
+    <color name="bg_btn">#dadada</color>
+
+    <color name="order_needpay">#ef1212</color>
+    <color name="order_cancel">#bbb</color>
+    <color name="order_finish">#0c97f4</color>
+    <color name="order_deliver">#f4790c</color>
+    <color name="order_haspayed">#00D65B</color>
+
+
+    <color name="window_background_color">#ffebebeb</color>
+    <drawable name="window_background_drawable">#9b9b9b</drawable>
+    <color name="action_bar_background_color">#ff02c994</color>
+    <color name="action_bar_title_color">#ffffff</color>
+    <color name="login_prompt_color">#989898</color>
+    <color name="login_button_text_color">#169095</color>
+    <color name="transparent">#00000000</color>
+    <color name="item_title_normal">#ff444444</color>
+    <color name="edittext_hint_color">#CCCCCC</color>
+    <color name="base_title_bg_color">#169095</color>
+    <color name="main_message_bg_color">#DBDBDB</color>
+    <color name="parent_bg_color">#00A175</color>
+    <color name="classzone_main_bg_color">#EBEBEB</color>
+    <color name="classzone_center_panel_bg_color">#CCCCCC</color>
+    <color name="classzone_showbig_image_bg_color">#383838</color>
+    <!-- 个人设置 -->
+    <color name="personal_account_prompt_text_color">#CCCCCC</color>
+    <color name="personal_account_text_color">#666666</color>
+    <color name="image_loading_bg">#ffefefef</color>
+    <color name="activity_bg_color">#fff5f5f5</color>
+    <color name="feed_hint_normal">#fff0f0f0</color>
+    <color name="feed_hint_normal_night">#ff252525</color>
+    <color name="feed_hint_pressed">#ffeaeaea</color>
+    <color name="feed_hint_pressed_night">#ff191919</color>
+    <color name="offline_text">#ff4bbff6</color>
+    <color name="divider_day">#ffdddddd</color>
+    <color name="ss_comment_time">#ff999999</color>
+    <color name="item_local">#ffffffff</color>
+    <color name="item_abstract_normal">#ff444444</color>
+
+    <drawable name="image_holder_color">#ff676767</drawable>
+
+    <color name="press_background_dark">#05a974</color>
+    <color name="press_background_white">#d8d8d8</color>
+    <color name="background_white">#ffffff</color>
+    <color name="list_selector_transparent">#00000000</color>
+    <color name="seekbar_indeterminate_color">#bfbfbf</color>
+    <color name="seekbar_progress_color">#56b8df</color>
+    <color name="seekbar_sleep_progress_color">#c5927d</color>
+
+    <drawable name="image_loader_background_rect">#a0a0a0</drawable>
+    <drawable name="background_transparent">#00000000</drawable>
+
+    <color name="home_tab_background">#f6f6f6</color>
+    <color name="home_tab_text_color">#ff999a9a</color>
+    <color name="home_tab_text_color_selected">#ff02ca94</color>
+    <color name="home_tab_divider_backgound">#c3c3c3</color>
+    <color name="common_background_light">#ffffffff</color>
+    <color name="hub_item_time_text_color">#999999</color>
+    <color name="hub_item_map_text_color">#999999</color>
+    <color name="hub_item_content_text_color">#666666</color>
+    <color name="hub_commenter_text_color">#ff395c9d</color>
+    <color name="like_comment_text_color">#ffffff</color>
+    <color name="hub_item_day_text_color">#999999</color>
+    <color name="hub_item_month_text_color">#999999</color>
+    <color name="hub_item_tree_house_divider_color">#ffffffff</color>
+    <color name="hub_tree_house_blackboard_child_name_color">#ffffff</color>
+    <color name="hub_tree_house_blackboard_child_des_color">#ffffff</color>
+    <color name="hub_tree_house_blackboard_child_info_background">#33000000</color>
+    <color name="hub_tree_house_blackboard_gallery_color">#ffffff</color>
+    <color name="hub_tree_house_mark_color">#ff00a175</color>
+    <color name="hub_tree_house_add_mark_color">#ff666666</color>
+    <color name="edit_text_hint_color">#cbcbcb</color>
+    <color name="edit_text_color">#666666</color>
+    <color name="login_login_text_color">#059770</color>
+    <color name="login_forgot_psw_text_color">#ffffff</color>
+    <color name="login_activate_account_color">#ffffff</color>
+    <color name="login_prompt_text_color">#047758</color>
+    <color name="white">#ffffff</color>
+    <color name="transparent2">#50000000</color>
+    <color name="windows_color">#F5F5F5</color>
+    <color name="bar_color">#232325</color>
+    <color name="popbg_color">#49484A</color>
+    <color name="light_notes_color">#ff999999</color>
+    <color name="link_color">#ff4abad7</color>
+    <color name="font_value">#ff888271</color>
+    <color name="khbf_list_white">#fff8f8f8</color>
+    <color name="title_white">#fff7f7f7</color>
+    <color name="deep_black">#ff000000</color>
+    <color name="black">#373741</color>
+    <color name="blacky">#ff000000</color>
+    <color name="black1">#7A7E83</color>
+    <color name="blackk1">#ff7c8081</color>
+    <color name="blackk">#ffe6e6e6</color>
+    <color name="black2">#ffeeeeee</color>
+    <color name="blue0">#ff88c1e8</color>
+    <color name="black3">#fff7f7f7</color>
+    <color name="black4">#ffeaeaea</color>
+    <color name="white_blue">#ff99ccff</color>
+    <color name="white_gray">#ffcccc99</color>
+    <color name="qjjl_top">#ffffffcc</color>
+
+    <color name="red1">#ffe36c09</color>
+    <color name="red3">#ffc0504d</color>
+    <color name="orange1">#ffff7d27</color>
+    <color name="orange2">#ffd75702</color>
+    <color name="orange4">#ffa57d3e</color>
+    <color name="darkgreen">#ff336666</color>
+    <color name="login">#ff333333</color>
+    <color name="gray_white">#fff7f7f7</color>
+    <color name="blue6">#ff71c7d4</color>
+    <color name="gray_black">#ff525252</color>
+    <color name="gray_back">#ff473e26</color>
+    <color name="main_bgcolor">#ffffffff</color>
+    <color name="list_bg1">#fff7f8fa</color>
+    <color name="list_bg0">#fff5f5f5</color>
+    <color name="list_bg2">#ffffffff</color>
+    <color name="list_bg3">#ffffcccc</color>
+    <color name="list_pressed">#ffa0a0a3</color>
+    <color name="title_back">#ff293852</color>
+    <color name="blue">#ff3300ff</color>
+    <color name="greeny">#ff11aca6</color>
+    <color name="orange3">#ffffd1b3</color>
+    <color name="notice_detail_pressedc">#ff99cccc</color>
+    <color name="white_blue_selected">#ffb1daff</color>
+    <color name="product_list_tab_color">#ff87888c</color>
+    <color name="product_list_tab_select_color">#ff333333</color>
+    <color name="product_list_bg_color">#ffcccccc</color>
+    <color name="pink">#fffedbf5</color>
+    <color name="lightblue">#ffe0eeff</color>
+    <color name="gray1">#ffefefef</color>
+    <color name="grey">#fff5f5f5</color>
+    <color name="grey2">#EAEBEA</color>
+    <color name="window_bg">#ffeef1f3</color>
+    <color name="qqblue">#ff54acea</color>
+    <color name="green1">#ff76923c</color>
+    <color name="greenn">#ff96cf99</color>
+    <color name="blue2">#ff31859b</color>
+    <color name="red4">#ff953734</color>
+    <color name="blue1">#ff00a4e8</color>
+    <color name="red2">#fff79646</color>
+    <color name="red0">#ffb7393a</color>
+    <color name="pur">#ff7030a0</color>
+    <color name="color_divider">#ffc9c9c9</color>
+    <color name="c1">#ffcca266</color>
+    <color name="c2">#ffc466cc</color>
+    <color name="c3">#ff31abea</color>
+    <color name="c4">#ff8ec31f</color>
+    <color name="c5">#ffff6cad</color>
+    <color name="c6">#ff8acc66</color>
+    <color name="c7">#ff448aca</color>
+    <color name="red6">#ffee5759</color>
+    <color name="calendar_background">#ff000000</color>
+    <color name="recordremind_background">#ffffffff</color>
+    <color name="border_color">#ffffffff</color>
+    <color name="weekname_color">#ffffffff</color>
+    <color name="day_color">#ffffffff</color>
+    <color name="inner_grid_color">#ffffffff</color>
+    <color name="prev_next_month_day_color">#ff999999</color>
+    <color name="text_color">#ffffff00</color>
+    <color name="recordremindtext_color">#ff000000</color>
+    <color name="current_day_color">#ffff0000</color>
+    <color name="today_background_color">#ffff0000</color>
+    <color name="today_color">#ffffffff</color>
+    <color name="sunday_saturday_color">#ffff0000</color>
+    <color name="sunday_saturday_prev_next_month_day_color">#ff990000</color>
+    <color name="bgcolor">#ffffffff</color>
+    <color name="txtcolor">#ff000000</color>
+    <color name="Calendar_WeekBgColor">#ffefe7de</color>
+    <color name="Calendar_WeekFontColor">#ff8c8a8c</color>
+    <color name="Calendar_DayBgColor">#fff7f7f7</color>
+    <color name="isHoliday_BgColor">#ffe0e0e0</color>
+    <color name="unPresentMonth_FontColor">#ff8c8a8c</color>
+    <color name="isPresentMonth_FontColor">#ff000000</color>
+    <color name="isToday_BgColor">#ffebdcc1</color>
+    <color name="specialReminder">#ffff0000</color>
+    <color name="commonReminder">#ffbdbab5</color>
+    <color name="gray">#eceeed</color>
+    <color name="gray2">#ffeef2fb</color>
+
+    <!-- For Map Function start -->
+    <color name="search_header_background_color">#dbdbdb</color>
+    <color name="search_bar_edit_hint_color">#cccccc</color>
+    <color name="search_bar_edit_text_color">#666666</color>
+    <color name="search_result_list_divider_color">#d0d0d0</color>
+    <!-- For Map Function end -->
+
+
+    <!-- For Send Recorder start -->
+    <color name="send_recorder_voice_text_color">#666666</color>
+    <color name="send_recorder_voice_time_color">#666666</color>
+    <color name="send_recorder_voice_warn_color">#ff0000</color>
+    <color name="send_recorder_edit_hint_color">#cccccc</color>
+    <color name="send_recorder_edit_text_color">#666666</color>
+    <color name="send_recorder_edit_background">#00F5FF</color>
+    <color name="send_recorder_location_text_color">#666666</color>
+    <color name="send_recorder_confirm_text_color">#ffffff</color>
+    <!-- For Send Recorder end -->
+
+
+    <!-- For Handbook start -->
+    <color name="handbook_teacher_window_background_color">#dbdbdb</color>
+    <color name="handbook_teacher_choose_background_color">#ffffff</color>
+    <color name="handbook_teacher_date_text_color">#666666</color>
+    <color name="handbook_teacher_help_text_color">#999999</color>
+    <color name="handbook_teacher_edit_text_color">#666666</color>
+    <color name="handbook_teacher_edit_hint_color">#999999</color>
+    <color name="handbook_teacher_send_text_color">#ffffff</color>
+    <color name="handbook_choose_background_color">#ebebeb</color>
+    <color name="handbook_choose_text_color">#ffffff</color>
+    <color name="handbook_history_date_text_color">#666666</color>
+    <!-- For Handbook end -->
+
+    <color name="contact_item_category_text_color">#999999</color>
+    <color name="contact_header_text_color">#ffffff</color>
+    <color name="contact_side_bar_index_toast_text_color">#666666</color>
+    <color name="contact_family_class_item_text_color">#9a9a9a</color>
+    <color name="contact_family_class_item_class_name_text_color">#2c2c2c</color>
+
+    <color name="user_account_edugate_number_color">#ff04aa73</color>
+
+    <drawable name="expand_list_divider">#ffff0000</drawable>
+
+    <color name="list_divider_color">#ffebebeb</color>
+    <drawable name="list_divider_drawable">#ffebebeb</drawable>
+
+    <color name="contact_header_color_pre">#ff0facc0</color>
+
+    <color name="contact_header_color_pre_pre">#ff96e165</color>
+
+    <color name="button_red_color">#fff13e64</color>
+
+    <drawable name="transparent">#00000000</drawable>
+
+    <color name="cur_month_text">#603b07</color>
+    <color name="non_month_text">#c0c0c0</color>
+
+    <!-- 深蓝色 -->
+    <color name="deep_blue">#0fabc1</color>
+    <!-- 浅绿色 -->
+    <color name="light_green">#5ED016</color>
+    <!-- 文字灰 -->
+    <color name="text_gray">#999999</color>
+    <!-- 字体灰 -->
+    <color name="font_gray">#747474</color>
+    <!-- 视图灰 -->
+    <color name="view_gray">#ffDFDFDF</color>
+    <!-- 背景灰 -->
+    <color name="background_gray">#ebebeb</color>
+</resources>
