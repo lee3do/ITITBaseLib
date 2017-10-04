@@ -17,6 +17,7 @@ import java.io.File;
 
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 import in.srain.cube.views.ptr.header.StoreHouseHeader;
+import io.itit.androidlibrary.ITITApplication;
 
 import static io.itit.androidlibrary.utils.CommonUtil.dipToPixel;
 
@@ -46,7 +47,7 @@ public class MyBindingAdapter {
 
     @BindingAdapter("refresh_label")
     public static void setRefreshLabel(PtrClassicFrameLayout rotateHeaderWebViewFrame, String label) {
-        StoreHouseHeader header = new StoreHouseHeader(rotateHeaderWebViewFrame.getContext());
+        StoreHouseHeader header = new StoreHouseHeader(ITITApplication.appContext);
         header.setPadding(0, CommonUtil.dipToPixel(15), 0, 0);
         header.initWithString(label);
         header.setTextColor(Color.rgb(20, 54, 95));
