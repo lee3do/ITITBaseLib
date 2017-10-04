@@ -28,6 +28,11 @@ public class MyBindingAdapter {
         view.setLayoutParams(layoutParams);
     }
 
+    @BindingAdapter("background_color")
+    public static void backgroundColor(View view, int color) {
+      view.setBackgroundColor(color);
+    }
+
     @BindingAdapter("layout_height")
     public static void setLayoutHeight(View view, int width) {
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();

@@ -6,9 +6,11 @@
     <attr name="longClick" format="reference"/>
 
     <attr name="img_src" format="integer"/>
+    <attr name="background_color" format="integer"/>
 
     <declare-styleable name="View">
         <attr name="longClick" />
+        <attr name="background_color" />
         <attr name="layout_width" />
         <attr name="layout_height" />
     </declare-styleable>
