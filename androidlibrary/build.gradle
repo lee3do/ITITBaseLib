@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
-
+apply plugin: 'me.tatarka.retrolambda'
 
 android {
     compileSdkVersion 26
@@ -12,6 +12,7 @@ android {
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+
     }
 //    lintOptions {
 //        abortOnError false
