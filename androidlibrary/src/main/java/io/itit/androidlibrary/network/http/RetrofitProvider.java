@@ -53,7 +53,7 @@ public class RetrofitProvider {
     private RetrofitProvider() {
     }
 
-    private static Retrofit getInstance() {
+    public static Retrofit getInstance() {
         if (retrofit == null) {
             HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor(message -> {
                 Log.v("HTTP", message);

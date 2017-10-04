@@ -2,7 +2,6 @@ package io.itit.androidlibrary.network.http;
 
 import android.content.Context;
 
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.hwangjr.rxbus.RxBus;
 import com.orhanobut.logger.Logger;
 
@@ -19,7 +18,6 @@ import retrofit2.HttpException;
 public class BaseSubscriber<T> extends Subject<T> {
 
     public Context mContext;
-    MaterialDialog dialog;
 
     public BaseSubscriber() {
 //        if (!NetworkUtil.isNetworkAvailable(context)) {
