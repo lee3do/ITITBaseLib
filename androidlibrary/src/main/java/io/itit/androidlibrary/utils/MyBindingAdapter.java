@@ -1,6 +1,7 @@
 package io.itit.androidlibrary.utils;
 
 import android.databinding.BindingAdapter;
+import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
 import android.net.Uri;
 import android.text.TextUtils;
@@ -13,6 +14,9 @@ import com.orhanobut.logger.Logger;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
+
+import in.srain.cube.views.ptr.PtrClassicFrameLayout;
+import in.srain.cube.views.ptr.header.StoreHouseHeader;
 
 import static io.itit.androidlibrary.utils.CommonUtil.dipToPixel;
 
@@ -38,6 +42,17 @@ public class MyBindingAdapter {
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         layoutParams.height = dipToPixel(width);
         view.setLayoutParams(layoutParams);
+    }
+
+    @BindingAdapter("refresh_label")
+    public static void setRefreshLabel(PtrClassicFrameLayout rotateHeaderWebViewFrame, String label) {
+        StoreHouseHeader header = new StoreHouseHeader(rotateHeaderWebViewFrame.getContext());
+        header.setPadding(0, CommonUtil.dipToPixel(15), 0, 0);
+        header.initWithString(label);
+        header.setTextColor(Color.rgb(20, 54, 95));
+        rotateHeaderWebViewFrame.setHeaderView(header);
+        rotateHeaderWebViewFrame.addPtrUIHandler(header);
+        rotateHeaderWebViewFrame.disableWhenHorizontalMove(true);
     }
 
     @BindingAdapter("img_src")

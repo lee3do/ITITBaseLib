@@ -2,6 +2,7 @@
     <attr name="layout_width" format="integer"/>
     <attr name="layout_height" format="integer"/>
     <attr name="animatedVisibility" format="integer"/>
+    <attr name="refresh_label" format="string"/>
     <attr name="local_uri" format="string"/>
     <attr name="longClick" format="reference"/>
 
@@ -13,6 +14,7 @@
         <attr name="background_color" />
         <attr name="layout_width" />
         <attr name="layout_height" />
+        <attr name="refresh_label" />
     </declare-styleable>
 
     <declare-styleable name="ImageView">
