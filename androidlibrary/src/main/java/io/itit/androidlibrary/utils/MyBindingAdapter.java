@@ -19,6 +19,9 @@ import com.squareup.picasso.Picasso;
 import java.io.File;
 
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
+import in.srain.cube.views.ptr.PtrDefaultHandler;
+import in.srain.cube.views.ptr.PtrFrameLayout;
+import in.srain.cube.views.ptr.PtrHandler;
 import in.srain.cube.views.ptr.header.StoreHouseHeader;
 import io.itit.androidlibrary.ITITApplication;
 import io.itit.androidlibrary.R;
@@ -99,6 +102,24 @@ public class MyBindingAdapter {
         });
     }
 
+    @BindingAdapter("after_refresh")
+    public static void afterRefresh(PtrClassicFrameLayout rotateHeaderWebViewFrame,final ReplyCommand command) {
+        rotateHeaderWebViewFrame.setPtrHandler(new PtrHandler() {
+            @Override
+            public boolean checkCanDoRefresh(PtrFrameLayout frame, View content, View header) {
+                boolean canRefresh = PtrDefaultHandler.checkContentCanBePulledDown(frame,
+                        content, header);
+                return canRefresh;
+            }
+
+            @Override
+            public void onRefreshBegin(PtrFrameLayout frame) {
+                if (command != null) {
+                    command.execute(frame);
+                }
+            }
+        });
+    }
 
     @BindingAdapter({"local_uri"})
     public static void setImageUri(ImageView imageView, String path) {

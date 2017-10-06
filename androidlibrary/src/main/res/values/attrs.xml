@@ -6,6 +6,8 @@
     <attr name="local_uri" format="string"/>
     <attr name="longClick" format="reference"/>
     <attr name="spinner_items" format="reference"/>
+    <attr name="afterRefresh" format="reference"/>
+
 
 
     <attr name="img_src" format="integer"/>
@@ -13,6 +15,7 @@
 
     <declare-styleable name="View">
         <attr name="longClick" />
+        <attr name="afterRefresh" />
         <attr name="background_color" />
         <attr name="layout_width" />
         <attr name="layout_height" />

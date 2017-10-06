@@ -60,9 +60,9 @@ public class RetrofitProvider {
             });
             httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
             OkHttpClient client = new OkHttpClient.Builder().
-//                    addNetworkInterceptor(REWRITE_CACHE_CONTROL_INTERCEPTOR).
-//                    addInterceptor(REWRITE_CACHE_CONTROL_INTERCEPTOR).
-//                    cache(cache).
+                    addNetworkInterceptor(REWRITE_CACHE_CONTROL_INTERCEPTOR).
+                    addInterceptor(REWRITE_CACHE_CONTROL_INTERCEPTOR).
+                    cache(cache).
         addInterceptor(httpLoggingInterceptor).connectTimeout(5, TimeUnit.MINUTES).build();
             retrofit = new Retrofit.Builder().baseUrl(baseUrl).client(client).addConverterFactory
                     (CustomGsonConverterFactory.create()).addCallAdapterFactory
