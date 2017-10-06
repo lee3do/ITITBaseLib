@@ -1,13 +1,16 @@
 package io.itit.androidlibrary.utils;
 
 import android.databinding.BindingAdapter;
+import android.databinding.ObservableList;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.Spinner;
 
 import com.kelin.mvvmlight.command.ReplyCommand;
 import com.orhanobut.logger.Logger;
@@ -18,6 +21,7 @@ import java.io.File;
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 import in.srain.cube.views.ptr.header.StoreHouseHeader;
 import io.itit.androidlibrary.ITITApplication;
+import io.itit.androidlibrary.R;
 
 import static io.itit.androidlibrary.utils.CommonUtil.dipToPixel;
 
@@ -43,6 +47,18 @@ public class MyBindingAdapter {
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         layoutParams.height = dipToPixel(width);
         view.setLayoutParams(layoutParams);
+    }
+
+    @BindingAdapter({"spinner_items"})
+    public static void spinnerItems(Spinner spinner, final ObservableList<String> viewModelList) {
+        if (viewModelList != null && !viewModelList.isEmpty()) {
+            ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(spinner.getContext(), R.layout.myspinner);
+            spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            for (String name : viewModelList) {
+                spinnerArrayAdapter.add(name);
+            }
+            spinner.setAdapter(spinnerArrayAdapter);
+        }
     }
 
     @BindingAdapter("refresh_label")
