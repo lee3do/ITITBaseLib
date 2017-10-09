@@ -42,8 +42,6 @@ final class GsonResponseBodyConverter<T> implements Converter<ResponseBody, T> {
                         } else {
                             throw new RuntimeException("系统错误!");
                         }
-
-
                     }
                 }
             }
