@@ -70,4 +70,11 @@ public class ITITApplication extends Application {
         }
         return res;
     }
+
+    public static String getToken() {
+        if (StringUtils.isEmpty(token)) {
+            token = PreferencesUtils.getString(appContext,Consts.Pref.TOKEN,"");
+        }
+        return token;
+    }
 }

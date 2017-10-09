@@ -15,6 +15,7 @@ import io.itit.androidlibrary.ITITApplication;
 import io.itit.androidlibrary.utils.NetWorkUtil;
 import okhttp3.Cache;
 import okhttp3.FormBody;
+import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -66,6 +67,26 @@ public class RetrofitProvider {
         }
     };
 
+    private static final Interceptor TOKEN_INTERCEPTOR = chain -> {
+        Request request = chain.request();
+        if (StringUtils.isEmpty(request.headers().get("TOKEN"))) {
+            return chain.proceed(request);
+        }
+        if (needJsonInterceptor) {
+            HttpUrl httpUrl = request.url().newBuilder().addQueryParameter("token",
+                    JSON.toJSONString(ITITApplication.getToken())).build();
+            request = request.newBuilder().url(httpUrl).build();
+        } else {
+            HttpUrl httpUrl = request.url()
+                    .newBuilder()
+                    .addQueryParameter("token",ITITApplication.getToken())
+                    .build();
+            request = request.newBuilder().url(httpUrl).build();
+        }
+
+        return chain.proceed(request);
+    };
+
     private static final Interceptor JSON_INTERCEPTOR = chain -> {
         Request request = chain.request();
         RequestBody body = request.body();
@@ -100,7 +121,8 @@ public class RetrofitProvider {
             httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
             OkHttpClient.Builder builder = new OkHttpClient.Builder().
-                    connectTimeout(TIME_OUT, TimeUnit.SECONDS);
+                    connectTimeout(TIME_OUT, TimeUnit.SECONDS).addInterceptor(TOKEN_INTERCEPTOR);
+
             if (needJsonInterceptor) {
                 builder.addInterceptor(JSON_INTERCEPTOR);
             }

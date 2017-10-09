@@ -59,6 +59,8 @@ public class Consts {
         public static final String LOGIN_ID = "loginId";
         public static final String DEVICE_ID = "deviceId";
 
+        public static final String TOKEN = "TOKEN";
+
         public static final String REC_MESSAGE = "REC_MESSAGE";
         public static final String SOUND = "SOUND";
         public static final String VIBRATION = "VIBRATION";
