@@ -5,6 +5,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonPrimitive;
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 
@@ -46,7 +47,20 @@ final class GsonResponseBodyConverter<T> implements Converter<ResponseBody, T> {
                     }
                 }
             }
-            return adapter.fromJsonTree(root);
+            try {
+                T data =  adapter.fromJsonTree(root);
+                return data;
+            }catch (JsonSyntaxException e){
+                String resultCode = root.toString().split(",")[1];
+                String resultMessage = root.toString().split(",")[2];
+                if (resultCode.equals("1001")) {
+                    throw new NeedLoginException();
+                } else {
+                    throw new RuntimeException(resultMessage);
+                }
+
+            }
+
         } finally {
             value.close();
         }

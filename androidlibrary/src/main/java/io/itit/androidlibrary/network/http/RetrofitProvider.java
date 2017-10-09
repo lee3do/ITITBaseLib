@@ -62,8 +62,8 @@ public class RetrofitProvider {
             int maxStale = 60 * 60 * 60; // 离线时缓存保存1小时
             Log.i("CACHE", "离线缓存");
             return originalResponse.newBuilder().header("Cache-Control", "public, only-if-cached," +
-                    "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + " " +
-                    "max-stale=" + maxStale).build();
+                    "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + " " +
+                    "" + "max-stale=" + maxStale).build();
         }
     };
 
@@ -72,17 +72,10 @@ public class RetrofitProvider {
         if (StringUtils.isEmpty(request.headers().get("TOKEN"))) {
             return chain.proceed(request);
         }
-        if (needJsonInterceptor) {
-            HttpUrl httpUrl = request.url().newBuilder().addQueryParameter("token",
-                    JSON.toJSONString(ITITApplication.getToken())).build();
-            request = request.newBuilder().url(httpUrl).build();
-        } else {
-            HttpUrl httpUrl = request.url()
-                    .newBuilder()
-                    .addQueryParameter("token",ITITApplication.getToken())
-                    .build();
-            request = request.newBuilder().url(httpUrl).build();
-        }
+        String name = request.headers().get("TOKEN").trim();
+        HttpUrl httpUrl = request.url().newBuilder().addQueryParameter(name, JSON.toJSONString
+                (ITITApplication.getToken())).build();
+        request = request.newBuilder().url(httpUrl).build();
 
         return chain.proceed(request);
     };

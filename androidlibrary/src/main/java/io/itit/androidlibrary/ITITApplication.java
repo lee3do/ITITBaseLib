@@ -73,8 +73,18 @@ public class ITITApplication extends Application {
 
     public static String getToken() {
         if (StringUtils.isEmpty(token)) {
-            token = PreferencesUtils.getString(appContext,Consts.Pref.TOKEN,"");
+            token = PreferencesUtils.getString(appContext, Consts.Pref.TOKEN, "");
         }
         return token;
+    }
+
+    public static void saveToken(String tokenStr) {
+        ITITApplication.token = tokenStr;
+        PreferencesUtils.putString(appContext, Consts.Pref.TOKEN, tokenStr);
+    }
+
+    public static void clearToken() {
+        ITITApplication.token = "";
+        PreferencesUtils.putString(appContext, Consts.Pref.TOKEN, "");
     }
 }
