@@ -1,6 +1,7 @@
 package io.itit.androidlibrary.utils;
 
 import android.databinding.BindingAdapter;
+import android.databinding.ObservableField;
 import android.databinding.ObservableList;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
@@ -8,6 +9,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -62,6 +64,21 @@ public class MyBindingAdapter {
             }
             spinner.setAdapter(spinnerArrayAdapter);
         }
+    }
+
+    @BindingAdapter({"value"})
+    public static void spinnerItems(Spinner spinner,final ObservableField<String> value) {
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+               value.set(spinner.getAdapter().getItem(i).toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                value.set("");
+            }
+        });
     }
 
     @BindingAdapter("refresh_label")
