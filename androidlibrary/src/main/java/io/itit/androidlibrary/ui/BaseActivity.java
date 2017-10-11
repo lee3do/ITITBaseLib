@@ -23,6 +23,11 @@ public class BaseActivity extends SwipeBackActivity {
     protected void onResume() {
         super.onResume();
         ITITApplication.currActivity = this;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         RxBus.get().register(this);
     }
 
