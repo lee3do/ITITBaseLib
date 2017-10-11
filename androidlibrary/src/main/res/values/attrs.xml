@@ -7,9 +7,7 @@
     <attr name="longClick" format="reference"/>
     <attr name="spinner_items" format="reference"/>
     <attr name="afterRefresh" format="reference"/>
-
-
-
+    <attr name="after_select" format="reference"/>
     <attr name="img_src" format="integer"/>
     <attr name="background_color" format="integer"/>
 
@@ -20,12 +18,16 @@
         <attr name="layout_width" />
         <attr name="layout_height" />
         <attr name="refresh_label" />
-        <attr name="spinner_items" />
     </declare-styleable>
 
     <declare-styleable name="ImageView">
         <attr name="local_uri"/>
         <attr name="animatedVisibility" />
         <attr name="img_src" />
+    </declare-styleable>
+
+    <declare-styleable name="Spinner">
+        <attr name="after_select" />
+        <attr name="spinner_items" />
     </declare-styleable>
 </resources>

@@ -1,7 +1,6 @@
 package io.itit.androidlibrary.utils;
 
 import android.databinding.BindingAdapter;
-import android.databinding.ObservableField;
 import android.databinding.ObservableList;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
@@ -66,17 +65,17 @@ public class MyBindingAdapter {
         }
     }
 
-    @BindingAdapter({"value"})
-    public static void spinnerItems(Spinner spinner,final ObservableField<String> value) {
+    @BindingAdapter({"after_select"})
+    public static void afterSelect(Spinner spinner,final ReplyCommand<String> command) {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-               value.set(spinner.getAdapter().getItem(i).toString());
+                command.execute(spinner.getAdapter().getItem(i).toString());
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                value.set("");
+                command.execute("");
             }
         });
     }

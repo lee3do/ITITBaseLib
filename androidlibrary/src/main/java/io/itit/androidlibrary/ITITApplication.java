@@ -7,6 +7,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.hwangjr.rxbus.RxBus;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
@@ -86,5 +87,9 @@ public class ITITApplication extends Application {
     public static void clearToken() {
         ITITApplication.token = "";
         PreferencesUtils.putString(appContext, Consts.Pref.TOKEN, "");
+    }
+
+    public static void showLoading(boolean show){
+        RxBus.get().post(Consts.BusAction.SHOW_LOADING,show);
     }
 }

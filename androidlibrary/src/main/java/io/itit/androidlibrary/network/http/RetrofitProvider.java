@@ -90,7 +90,6 @@ public class RetrofitProvider {
             for (int i = 0; i < formBody.size(); i++) {
                 formMap.put(formBody.name(i), JSON.toJSONString(formBody.value(i)));
             }
-            // 将 formMap 转化为 json 然后 AES 加密
             Gson gson = new Gson();
             String jsonParams = gson.toJson(formMap);
             // 重新修改 body 的内容

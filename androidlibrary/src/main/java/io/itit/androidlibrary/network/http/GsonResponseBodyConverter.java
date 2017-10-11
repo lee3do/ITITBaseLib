@@ -7,9 +7,11 @@ import com.google.gson.JsonParser;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.TypeAdapter;
+import com.orhanobut.logger.Logger;
 
 import java.io.IOException;
 
+import cn.trinea.android.common.util.StringUtils;
 import okhttp3.ResponseBody;
 import retrofit2.Converter;
 
@@ -24,7 +26,13 @@ final class GsonResponseBodyConverter<T> implements Converter<ResponseBody, T> {
 
     @Override
     public T convert(ResponseBody value) throws IOException {
+
         String str = value.string();
+        if (StringUtils.isEmpty(str)) {
+            Logger.d("return void");
+            return null;
+        }
+        Logger.d(str);
         try {
             JsonParser parser = new JsonParser();
             JsonElement root = parser.parse(str);
@@ -48,6 +56,7 @@ final class GsonResponseBodyConverter<T> implements Converter<ResponseBody, T> {
             T data = adapter.fromJsonTree(root);
             return data;
         } catch (JsonSyntaxException e) {
+            Logger.e(e, "JsonSyntaxException");
             //兼容另外一种格式
             String resultCode = str.split(",")[1];
             String resultMessage = str.split(",")[2];
