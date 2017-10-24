@@ -46,6 +46,8 @@ public class MyBindingAdapter {
       view.setBackgroundColor(color);
     }
 
+
+
     @BindingAdapter("layout_height")
     public static void setLayoutHeight(View view, int width) {
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
