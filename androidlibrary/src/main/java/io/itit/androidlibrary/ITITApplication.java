@@ -47,11 +47,9 @@ public class ITITApplication extends Application {
         if (StringUtils.isEmpty(PreferencesUtils.getString(this, Consts.Pref.DEVICE_ID))) {
             PreferencesUtils.putString(this, Consts.Pref.DEVICE_ID, UUID.randomUUID().toString());
         }
-
-
         appContext = this;
-
     }
+
 
 
     @Override
