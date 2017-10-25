@@ -12,7 +12,6 @@ import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
-import com.squareup.leakcanary.LeakCanary;
 
 import java.util.UUID;
 
@@ -36,12 +35,6 @@ public class ITITApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        if (LeakCanary.isInAnalyzerProcess(this)) {
-            // This process is dedicated to LeakCanary for heap analysis.
-            // You should not init your app in this process.
-            return;
-        }
-        LeakCanary.install(this);
         Fresco.initialize(this);
         Fragmentation.builder().handleException(e -> {
             e.printStackTrace();
