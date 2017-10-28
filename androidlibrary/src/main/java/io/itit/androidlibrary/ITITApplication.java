@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 
-import com.facebook.drawee.backends.pipeline.Fresco;
 import com.hwangjr.rxbus.RxBus;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
@@ -35,7 +34,6 @@ public class ITITApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Fresco.initialize(this);
         Fragmentation.builder().handleException(e -> {
             e.printStackTrace();
             Logger.e(e, "");
