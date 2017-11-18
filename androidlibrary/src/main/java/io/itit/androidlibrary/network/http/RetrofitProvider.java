@@ -62,8 +62,8 @@ public class RetrofitProvider {
             int maxStale = 60 * 60 * 60; // 离线时缓存保存1小时
             Log.i("CACHE", "离线缓存");
             return originalResponse.newBuilder().header("Cache-Control", "public, only-if-cached," +
-                    "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + " " +
-                    "" + "max-stale=" + maxStale).build();
+                    "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + ""
+                    + " " + "" + "max-stale=" + maxStale).build();
         }
     };
 
@@ -113,7 +113,9 @@ public class RetrofitProvider {
             httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
             OkHttpClient.Builder builder = new OkHttpClient.Builder().
-                    connectTimeout(TIME_OUT, TimeUnit.SECONDS).addInterceptor(TOKEN_INTERCEPTOR);
+                    connectTimeout(TIME_OUT, TimeUnit.SECONDS).readTimeout(TIME_OUT, TimeUnit
+                    .SECONDS).writeTimeout(TIME_OUT, TimeUnit.SECONDS).addInterceptor
+                    (TOKEN_INTERCEPTOR);
 
             if (needJsonInterceptor) {
                 builder.addInterceptor(JSON_INTERCEPTOR);
