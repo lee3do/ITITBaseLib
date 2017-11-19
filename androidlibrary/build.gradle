@@ -47,6 +47,7 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.github.lygttpod:SuperTextView:2.1.5'
     compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
     compile 'com.afollestad.material-dialogs:core:0.9.4.7'
     compile 'io.github.rockerhieu:emojicon:1.4.1'

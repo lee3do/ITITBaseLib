@@ -18,6 +18,7 @@ import me.yokeyword.fragmentation_swipeback.SwipeBackActivity;
 
 public class BaseActivity extends SwipeBackActivity {
     public MaterialDialog loadingDialog;
+    public boolean backNeedConfirm = false;
 
     @Override
     protected void onResume() {
@@ -29,12 +30,29 @@ public class BaseActivity extends SwipeBackActivity {
     protected void onStart() {
         super.onStart();
         RxBus.get().register(this);
+        if (backNeedConfirm) {
+            setSwipeBackEnable(false);
+        }
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         RxBus.get().unregister(this);
+    }
+
+    @Override
+    public void onBackPressedSupport() {
+        if (backNeedConfirm) {
+            new MaterialDialog.Builder(this).content("确认要返回吗？").negativeText("取消").positiveText
+                    ("确认").onPositive((s, s1) -> {
+                super.onBackPressedSupport();
+            }).show();
+        } else {
+            super.onBackPressedSupport();
+        }
+
+
     }
 
     @Subscribe(thread = EventThread.MAIN_THREAD, tags = {@Tag(Consts.BusAction.TOAST)})
