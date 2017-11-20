@@ -28,7 +28,7 @@ final class GsonResponseBodyConverter<T> implements Converter<ResponseBody, T> {
     public T convert(ResponseBody value) throws IOException {
 
         String str = value.string();
-        if (StringUtils.isEmpty(str)) {
+        if (StringUtils.isEmpty(str.trim())) {
             Logger.d("return void");
             return null;
         }
