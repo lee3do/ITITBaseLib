@@ -12,6 +12,7 @@ import com.orhanobut.logger.Logger;
 import java.io.IOException;
 
 import cn.trinea.android.common.util.StringUtils;
+import io.itit.androidlibrary.network.domain.BaseMessage;
 import okhttp3.ResponseBody;
 import retrofit2.Converter;
 
@@ -30,7 +31,13 @@ final class GsonResponseBodyConverter<T> implements Converter<ResponseBody, T> {
         String str = value.string();
         if (StringUtils.isEmpty(str.trim())) {
             Logger.d("return void");
-            return null;
+            T msg = null;
+            try {
+                msg = (T) BaseMessage.class.newInstance();
+            } catch (InstantiationException | IllegalAccessException e) {
+                Logger.e(e,"");
+            }
+            return msg;
         }
         Logger.d(str);
         try {
