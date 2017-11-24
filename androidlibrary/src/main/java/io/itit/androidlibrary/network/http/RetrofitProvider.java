@@ -13,9 +13,9 @@ import java.util.concurrent.TimeUnit;
 import cn.trinea.android.common.util.StringUtils;
 import io.itit.androidlibrary.ITITApplication;
 import io.itit.androidlibrary.utils.NetWorkUtil;
+import io.reactivex.schedulers.Schedulers;
 import okhttp3.Cache;
 import okhttp3.FormBody;
-import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -36,6 +36,7 @@ public class RetrofitProvider {
     private static AppApis appApis;
 
     public static boolean needJsonInterceptor = false;
+    public static boolean needAuthInterceptor = false;
     public static boolean needCache = true;
     public static boolean needLog = true;
     public static int TIME_OUT = 60;
@@ -67,18 +68,18 @@ public class RetrofitProvider {
         }
     };
 
-    private static final Interceptor TOKEN_INTERCEPTOR = chain -> {
-        Request request = chain.request();
-        if (StringUtils.isEmpty(request.headers().get("TOKEN"))) {
-            return chain.proceed(request);
-        }
-        String name = request.headers().get("TOKEN").trim();
-        HttpUrl httpUrl = request.url().newBuilder().addQueryParameter(name, JSON.toJSONString
-                (ITITApplication.getToken())).build();
-        request = request.newBuilder().url(httpUrl).build();
-
-        return chain.proceed(request);
-    };
+//    private static final Interceptor TOKEN_INTERCEPTOR = chain -> {
+//        Request request = chain.request();
+//        if (StringUtils.isEmpty(request.headers().get("TOKEN"))) {
+//            return chain.proceed(request);
+//        }
+//        String name = request.headers().get("TOKEN").trim();
+//        HttpUrl httpUrl = request.url().newBuilder().addQueryParameter(name, JSON.toJSONString
+//                (ITITApplication.getToken())).build();
+//        request = request.newBuilder().url(httpUrl).build();
+//
+//        return chain.proceed(request);
+//    };
 
     private static final Interceptor JSON_INTERCEPTOR = chain -> {
         Request request = chain.request();
@@ -114,11 +115,14 @@ public class RetrofitProvider {
 
             OkHttpClient.Builder builder = new OkHttpClient.Builder().
                     connectTimeout(TIME_OUT, TimeUnit.SECONDS).readTimeout(TIME_OUT, TimeUnit
-                    .SECONDS).writeTimeout(TIME_OUT, TimeUnit.SECONDS).addInterceptor
-                    (TOKEN_INTERCEPTOR);
+                    .SECONDS).writeTimeout(TIME_OUT, TimeUnit.SECONDS);
 
             if (needJsonInterceptor) {
                 builder.addInterceptor(JSON_INTERCEPTOR);
+            }
+
+            if (needAuthInterceptor) {
+                builder.addInterceptor(new AuthInterceptor());
             }
 
             if (needCache) {
@@ -134,7 +138,7 @@ public class RetrofitProvider {
             OkHttpClient client = builder.build();
             retrofit = new Retrofit.Builder().baseUrl(baseUrl).client(client).addConverterFactory
                     (CustomGsonConverterFactory.create()).addCallAdapterFactory
-                    (RxJava2CallAdapterFactory.create()).build();
+                    (RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io())).build();
         }
         return retrofit;
     }
