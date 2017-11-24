@@ -3,6 +3,7 @@ package io.itit.androidlibrary.network.http;
 import android.support.annotation.VisibleForTesting;
 
 import com.alibaba.fastjson.JSON;
+import com.orhanobut.logger.Logger;
 
 import java.io.IOException;
 
@@ -45,12 +46,14 @@ public class AuthInterceptor implements Interceptor {
     @VisibleForTesting
     void tokenAuth(Request.Builder newRequest, HttpUrl url, String[] names) {
         if (AuthFields == null || AuthFields.length != names.length) {
+            Logger.d(url);
             throw new NeedLoginException();
         }
 
         HttpUrl.Builder newUrl = url.newBuilder();
         for (int i = 0; i < names.length; i++) {
-            newUrl.addQueryParameter(names[i], JSON.toJSONString(AuthFields[i]));
+
+            newUrl.addQueryParameter(names[i],RetrofitProvider.needJsonInterceptor? JSON.toJSONString(AuthFields[i]):AuthFields[i]);
         }
 
         newRequest.url(newUrl.build());
