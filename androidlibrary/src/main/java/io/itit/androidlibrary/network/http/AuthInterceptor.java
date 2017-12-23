@@ -52,7 +52,6 @@ public class AuthInterceptor implements Interceptor {
 
         HttpUrl.Builder newUrl = url.newBuilder();
         for (int i = 0; i < names.length; i++) {
-
             newUrl.addQueryParameter(names[i],RetrofitProvider.needJsonInterceptor? JSON.toJSONString(AuthFields[i]):AuthFields[i]);
         }
 
