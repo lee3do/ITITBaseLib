@@ -1,8 +1,10 @@
 package io.itit.androidlibrary.ui;
 
+import android.os.Bundle;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.afollestad.materialdialogs.Theme;
 import com.hwangjr.rxbus.RxBus;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
@@ -19,6 +21,14 @@ import me.yokeyword.fragmentation_swipeback.SwipeBackActivity;
 public class BaseActivity extends SwipeBackActivity {
     public MaterialDialog loadingDialog;
     public boolean backNeedConfirm = false;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        loadingDialog = new MaterialDialog.Builder(this).theme(Theme.LIGHT)
+               .progress(true, 0).build();
+    }
 
     @Override
     protected void onResume() {
@@ -58,6 +68,15 @@ public class BaseActivity extends SwipeBackActivity {
     @Subscribe(thread = EventThread.MAIN_THREAD, tags = {@Tag(Consts.BusAction.TOAST)})
     public void toast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Subscribe(thread = EventThread.MAIN_THREAD, tags = {@Tag(Consts.BusAction.SHOW_LOADING)})
+    public void loading(boolean isShow) {
+        if (isShow) {
+            loadingDialog.show();
+        } else {
+            loadingDialog.hide();
+        }
     }
 
 }

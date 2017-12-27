@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.DrawableRes;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -15,6 +14,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import io.itit.androidlibrary.R;
 
@@ -33,18 +34,83 @@ public class BottomBarTab extends FrameLayout {
     public int selectColor = R.color.tab_select;
     public int unSelectColor = R.color.tab_unselect;
 
-    public BottomBarTab(Context context, @DrawableRes int icon, CharSequence title) {
+    public BottomBarTab(Context context, int icon, CharSequence title) {
         this(context, null, icon, title);
     }
 
-    public BottomBarTab(Context context, @DrawableRes int icon, CharSequence title,int selectColor,int unSelectColor) {
+    public BottomBarTab(Context context, int icon, CharSequence title, int selectColor, int
+            unSelectColor) {
         this(context, null, icon, title);
         this.selectColor = selectColor;
         this.unSelectColor = unSelectColor;
     }
 
+    public BottomBarTab(Context context, String iconPath, CharSequence title) {
+        super(context, null, 0);
+        init(context, iconPath, title);
+    }
+
     public BottomBarTab(Context context, AttributeSet attrs, int icon, CharSequence title) {
         this(context, attrs, 0, icon, title);
+    }
+
+    private void init(Context context, String icon, CharSequence title) {
+        mContext = context;
+        TypedArray typedArray = context.obtainStyledAttributes(new int[]{R.attr
+                .selectableItemBackgroundBorderless});
+        Drawable drawable = typedArray.getDrawable(0);
+        setBackgroundDrawable(drawable);
+        typedArray.recycle();
+
+        LinearLayout lLContainer = new LinearLayout(context);
+        lLContainer.setOrientation(LinearLayout.VERTICAL);
+        lLContainer.setGravity(Gravity.CENTER);
+        LayoutParams paramsContainer = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+        paramsContainer.gravity = Gravity.CENTER;
+        lLContainer.setLayoutParams(paramsContainer);
+
+        mIcon = new ImageView(context);
+        //  mIcon.setScaleType(ImageView.ScaleType.CENTER);
+        int size = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 21, getResources
+                ().getDisplayMetrics());
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(size, size);
+        Picasso.with(context).load(icon).into(mIcon);
+
+        mIcon.setLayoutParams(params);
+        mIcon.setColorFilter(ContextCompat.getColor(context, R.color.tab_unselect));
+        lLContainer.addView(mIcon);
+
+        mTvTitle = new TextView(context);
+        mTvTitle.setText(title);
+        LinearLayout.LayoutParams paramsTv = new LinearLayout.LayoutParams(ViewGroup.LayoutParams
+                .WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        paramsTv.topMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2,
+                getResources().getDisplayMetrics());
+        mTvTitle.setTextSize(12);
+        mTvTitle.setTextColor(ContextCompat.getColor(context, R.color.tab_unselect));
+        mTvTitle.setLayoutParams(paramsTv);
+        lLContainer.addView(mTvTitle);
+
+        addView(lLContainer);
+
+        int min = dip2px(context, 20);
+        int padding = dip2px(context, 5);
+        mTvUnreadCount = new TextView(context);
+        mTvUnreadCount.setBackgroundResource(R.drawable.bg_msg_bubble);
+        mTvUnreadCount.setMinWidth(min);
+        mTvUnreadCount.setTextColor(Color.WHITE);
+        mTvUnreadCount.setPadding(padding, 0, padding, 0);
+        mTvUnreadCount.setGravity(Gravity.CENTER);
+        FrameLayout.LayoutParams tvUnReadParams = new FrameLayout.LayoutParams(ViewGroup
+                .LayoutParams.WRAP_CONTENT, min);
+        tvUnReadParams.gravity = Gravity.CENTER;
+        tvUnReadParams.leftMargin = dip2px(context, 17);
+        tvUnReadParams.bottomMargin = dip2px(context, 14);
+        mTvUnreadCount.setLayoutParams(tvUnReadParams);
+        mTvUnreadCount.setVisibility(GONE);
+
+        addView(mTvUnreadCount);
     }
 
     public BottomBarTab(Context context, AttributeSet attrs, int defStyleAttr, int icon,
@@ -110,16 +176,39 @@ public class BottomBarTab extends FrameLayout {
         addView(mTvUnreadCount);
     }
 
+    private boolean useRes = true;
+    public int selectColorInt;
+    public int unSelectColorInt;
+
+    public void setColorString(String selected, String unSelect) {
+        selectColorInt = Color.parseColor(selected);
+        unSelectColorInt = Color.parseColor(unSelect);
+        useRes = false;
+        mIcon.setColorFilter(unSelectColorInt);
+        mTvTitle.setTextColor(unSelectColorInt);
+    }
+
     @Override
     public void setSelected(boolean selected) {
         super.setSelected(selected);
-        if (selected) {
-            mIcon.setColorFilter(ContextCompat.getColor(mContext, selectColor));
-            mTvTitle.setTextColor(ContextCompat.getColor(mContext, selectColor));
-        } else {
-            mIcon.setColorFilter(ContextCompat.getColor(mContext, unSelectColor));
-            mTvTitle.setTextColor(ContextCompat.getColor(mContext, unSelectColor));
+        if (useRes) {
+            if (selected) {
+                mIcon.setColorFilter(ContextCompat.getColor(mContext, selectColor));
+                mTvTitle.setTextColor(ContextCompat.getColor(mContext, selectColor));
+            } else {
+                mIcon.setColorFilter(ContextCompat.getColor(mContext, unSelectColor));
+                mTvTitle.setTextColor(ContextCompat.getColor(mContext, unSelectColor));
+            }
+        }else {
+            if (selected) {
+                mIcon.setColorFilter(selectColorInt);
+                mTvTitle.setTextColor(selectColorInt);
+            } else {
+                mIcon.setColorFilter(unSelectColorInt);
+                mTvTitle.setTextColor(unSelectColorInt);
+            }
         }
+
     }
 
     public void setTabPosition(int position) {
