@@ -21,9 +21,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.Enumeration;
-import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
+
+import cn.trinea.android.common.util.StringUtils;
 
 public class AppUtils {
 
@@ -219,6 +220,36 @@ public class AppUtils {
         }
         zfile.close();
         return 0;
+    }
+
+
+    /**
+     * 返回当前程序版本名
+     */
+    public static String getAppVersionName(Context context) {
+        String versionName = "";
+        try {
+            PackageManager pm = context.getPackageManager();
+            PackageInfo pi = pm.getPackageInfo(context.getPackageName(), 0);
+            versionName = pi.versionName;
+            if (StringUtils.isEmpty(versionName)) {
+                return "";
+            }
+        } catch (Exception ignored) {
+        }
+        return versionName;
+    }
+
+
+    public static String getVersionName(Context context) {
+        String version = "";
+        try {
+            PackageInfo packInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+            version = packInfo.versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return version;
     }
 
     /**
