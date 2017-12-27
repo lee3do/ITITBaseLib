@@ -9,6 +9,7 @@ import com.hwangjr.rxbus.RxBus;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.hwangjr.rxbus.thread.EventThread;
+import com.orhanobut.logger.Logger;
 
 import io.itit.androidlibrary.Consts;
 import io.itit.androidlibrary.ITITApplication;
@@ -71,7 +72,8 @@ public class BaseActivity extends SwipeBackActivity {
     }
 
     @Subscribe(thread = EventThread.MAIN_THREAD, tags = {@Tag(Consts.BusAction.SHOW_LOADING)})
-    public void loading(boolean isShow) {
+    public void showLoading(Boolean isShow) {
+        Logger.d("isShow:"+isShow);
         if (isShow) {
             loadingDialog.show();
         } else {
