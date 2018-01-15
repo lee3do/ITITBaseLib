@@ -2,6 +2,7 @@ package io.itit.androidlibrary.utils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
@@ -240,12 +241,24 @@ public class AppUtils {
         return versionName;
     }
 
+    public static String getApplicationName(Context context) {
+        PackageManager packageManager = null;
+        ApplicationInfo applicationInfo = null;
+        try {
+            packageManager = context.getPackageManager();
+            applicationInfo = packageManager.getApplicationInfo(context.getPackageName(), 0);
+        } catch (PackageManager.NameNotFoundException ignored) {
+        }
+        return (String) packageManager.getApplicationLabel(applicationInfo);
+    }
 
-    public static String getVersionName(Context context) {
-        String version = "";
+
+
+    public static int getVersionCode(Context context) {
+        int version = 0;
         try {
             PackageInfo packInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-            version = packInfo.versionName;
+            version = packInfo.versionCode;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }

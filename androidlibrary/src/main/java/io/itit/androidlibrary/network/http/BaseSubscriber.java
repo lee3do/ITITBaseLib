@@ -36,7 +36,9 @@ public class BaseSubscriber<T> extends Subject<T> {
 
     public BaseSubscriber(boolean showLoading){
         mContext = ITITApplication.appContext;
-        RxBus.get().post(Consts.BusAction.SHOW_LOADING,true);
+        if (showLoading) {
+            RxBus.get().post(Consts.BusAction.SHOW_LOADING,true);
+        }
 
     }
 
