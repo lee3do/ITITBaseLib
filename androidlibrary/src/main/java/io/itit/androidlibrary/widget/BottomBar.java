@@ -27,7 +27,7 @@ public class BottomBar extends LinearLayout {
 
     private List<BottomBarTab> mTabs = new ArrayList<>();
 
-    private LinearLayout mTabLayout;
+    public LinearLayout mTabLayout;
 
     private LayoutParams mTabParams;
     private int mCurrentPosition = 0;
@@ -61,6 +61,8 @@ public class BottomBar extends LinearLayout {
         mTabParams = new LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT);
         mTabParams.weight = 1;
     }
+
+
 
     public BottomBar addItem(final BottomBarTab tab) {
         tab.setOnClickListener(v -> {

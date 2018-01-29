@@ -80,6 +80,7 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     compile 'com.github.ybq:Android-SpinKit:1.1.0'
     compile "me.leolin:ShortcutBadger:1.1.19@aar"
+    implementation 'cn.bingoogolapple:bga-qrcode-zxing:1.2.1'
 
 }
 

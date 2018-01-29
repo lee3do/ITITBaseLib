@@ -177,8 +177,8 @@ public class BottomBarTab extends FrameLayout {
     }
 
     private boolean useRes = true;
-    public int selectColorInt;
-    public int unSelectColorInt;
+    public int selectColorInt=0;
+    public int unSelectColorInt=0;
 
     public void setColorString(String selected, String unSelect) {
         selectColorInt = Color.parseColor(selected);
@@ -186,6 +186,12 @@ public class BottomBarTab extends FrameLayout {
         useRes = false;
         mIcon.setColorFilter(unSelectColorInt);
         mTvTitle.setTextColor(unSelectColorInt);
+    }
+
+    public void setSelectColorString(String selected) {
+        selectColorInt = Color.parseColor(selected);
+        useRes = false;
+        mIcon.setColorFilter(unSelectColorInt);
     }
 
     @Override
@@ -204,8 +210,14 @@ public class BottomBarTab extends FrameLayout {
                 mIcon.setColorFilter(selectColorInt);
                 mTvTitle.setTextColor(selectColorInt);
             } else {
-                mIcon.setColorFilter(unSelectColorInt);
-                mTvTitle.setTextColor(unSelectColorInt);
+                if (unSelectColorInt != 0) {
+                    mIcon.setColorFilter(unSelectColorInt);
+                    mTvTitle.setTextColor(unSelectColorInt);
+                } else {
+                    mIcon.setColorFilter(null);
+                    mTvTitle.setTextColor(ContextCompat.getColor(mContext,R.color.tab_unselect));
+                }
+
             }
         }
 

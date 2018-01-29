@@ -16,6 +16,7 @@ public class Consts {
         public static final String UpdateMessage = "UpdateMessage";
         public static final String Socket_Reg = "Socket_Reg";
         public static final String REC_MSG = "REC_MSG";
+        public static final String SCAN_SUCCESS = "SCAN_SUCCESS";
         public static final String LOG_OUT = "LOG_OUT";
         public static final String Change_Brand = "Change_Brand";
         public static final String UpdateUnRead = "UpdateUnRead";
