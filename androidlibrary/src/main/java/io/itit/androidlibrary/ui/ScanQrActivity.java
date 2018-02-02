@@ -2,6 +2,7 @@ package io.itit.androidlibrary.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.hwangjr.rxbus.RxBus;
 
@@ -19,6 +20,10 @@ public class ScanQrActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_qr);
         zXingView = findViewById(R.id.zxingview);
+        View back = findViewById(R.id.back);
+        back.setOnClickListener(v -> {
+            finish();
+        });
         zXingView.setDelegate(new QRCodeView.Delegate() {
             @Override
             public void onScanQRCodeSuccess(String result) {

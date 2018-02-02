@@ -19,6 +19,9 @@ public class Consts {
         public static final String SCAN_SUCCESS = "SCAN_SUCCESS";
         public static final String LOG_OUT = "LOG_OUT";
         public static final String Change_Brand = "Change_Brand";
+        public static final String START_RECORD = "START_RECORD";
+        public static final String STOP_RECORD = "STOP_RECORD";
+        public static final String DISCARD_RECORD = "DISCARD_RECORD";
         public static final String UpdateUnRead = "UpdateUnRead";
         public static final String TOAST = "TOAST";
         public static final String SHOW_LOADING = "SHOW_LOADING";
