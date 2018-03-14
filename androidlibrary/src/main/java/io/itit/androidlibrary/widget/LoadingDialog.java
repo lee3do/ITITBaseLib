@@ -69,7 +69,7 @@ public class LoadingDialog  extends Dialog {
         dialog.getWindow().getAttributes().gravity = Gravity.CENTER;
         WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
         // 设置背景层透明度
-        lp.dimAmount = 0.7f;
+        lp.dimAmount = 0.1f;
         dialog.getWindow().setAttributes(lp);
         // dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
         dialog.show();

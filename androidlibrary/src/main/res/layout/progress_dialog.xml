@@ -18,7 +18,7 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_gravity="center"
-        app:SpinKit_Color="@color/colorAccent" />
+        app:SpinKit_Color="@color/colorPrimary" />
 
     <TextView
         android:id="@+id/message"
