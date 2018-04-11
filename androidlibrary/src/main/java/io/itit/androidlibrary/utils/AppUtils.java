@@ -22,6 +22,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.Enumeration;
+import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
@@ -308,5 +309,29 @@ public class AppUtils {
         }
 
         return ret;
+    }
+
+    /**
+     * 检查手机上是否安装了指定的软件
+     *
+     * @param context
+     * @param packageName
+     *            ：应用包名
+     * @return
+     */
+    private boolean inInstalled(Context context, String packageName) {
+        // 获取packagemanager
+        final PackageManager packageManager = context.getPackageManager();
+        // 获取所有已安装程序的包信息
+        List<PackageInfo> packageInfos = packageManager.getInstalledPackages(0);
+        if (packageInfos != null) {
+            for (int i = 0; i < packageInfos.size(); i++) {
+                if (packageInfos.get(i).packageName.equals(packageName)) {
+                    return true;
+                }
+            }
+        }
+        // 判断packageNames中是否有目标程序的包名，有TRUE，没有FALSE
+        return false;
     }
 } 
