@@ -319,7 +319,7 @@ public class AppUtils {
      *            ：应用包名
      * @return
      */
-    private boolean inInstalled(Context context, String packageName) {
+    public static boolean isInstalled(Context context, String packageName) {
         // 获取packagemanager
         final PackageManager packageManager = context.getPackageManager();
         // 获取所有已安装程序的包信息
