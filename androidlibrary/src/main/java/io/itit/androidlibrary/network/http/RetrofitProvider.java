@@ -148,12 +148,12 @@ public class RetrofitProvider {
     }
 
     @SuppressLint("CheckResult")
-    public static void get(String url, Map headers, Map parameters, Consumer<ResponseBody> success, Consumer<Throwable> error) {
+    public static void get(String url, Map<String,Object> headers, Map<String,Object> parameters, Consumer<ResponseBody> success, Consumer<Throwable> error) {
         if (headers!=null) {
-            headers = new HashMap();
+            headers = new HashMap<>();
         }
         if (parameters!=null) {
-            parameters = new HashMap();
+            parameters = new HashMap<>();
         }
         getApiInstance().httpGet(url, headers, parameters)
                 .subscribeOn(Schedulers.io())
@@ -163,12 +163,12 @@ public class RetrofitProvider {
     }
 
     @SuppressLint("CheckResult")
-    public static void post(String url, Map headers, Map parameters, Consumer<ResponseBody> success, Consumer<Throwable> error) {
+    public static void post(String url, Map<String,Object> headers, Map<String,Object> parameters, Consumer<ResponseBody> success, Consumer<Throwable> error) {
         if (headers!=null) {
-            headers = new HashMap();
+            headers = new HashMap<>();
         }
         if (parameters!=null) {
-            parameters = new HashMap();
+            parameters = new HashMap<>();
         }
         getApiInstance().httpPost(url, headers, parameters)
                 .subscribeOn(Schedulers.io())
