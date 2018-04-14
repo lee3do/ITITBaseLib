@@ -148,21 +148,21 @@ public class RetrofitProvider {
     }
 
     @SuppressLint("CheckResult")
-    public void get(String url, Map headers, Map parameters, Consumer<ResponseBody> subscriber) {
+    public static void get(String url, Map headers, Map parameters, Consumer<ResponseBody> success, Consumer<ResponseBody> error) {
         getApiInstance().httpGet(url, headers, parameters)
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(subscriber);
+                .subscribe(success,error);
     }
 
     @SuppressLint("CheckResult")
-    public void post(String url, Map headers, Map parameters, Consumer<ResponseBody> subscriber) {
+    public static void post(String url, Map headers, Map parameters, Consumer<ResponseBody> success, Consumer<ResponseBody> error) {
         getApiInstance().httpPost(url, headers, parameters)
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(subscriber);
+                .subscribe(success,error);
     }
 
     public static AppApis getApiInstance() {
