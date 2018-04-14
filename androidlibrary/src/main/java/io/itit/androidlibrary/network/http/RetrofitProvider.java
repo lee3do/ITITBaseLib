@@ -1,5 +1,6 @@
 package io.itit.androidlibrary.network.http;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
@@ -13,6 +14,8 @@ import java.util.concurrent.TimeUnit;
 import cn.trinea.android.common.util.StringUtils;
 import io.itit.androidlibrary.ITITApplication;
 import io.itit.androidlibrary.utils.NetWorkUtil;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.Cache;
 import okhttp3.FormBody;
@@ -21,6 +24,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -141,6 +145,24 @@ public class RetrofitProvider {
                     (RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io())).build();
         }
         return retrofit;
+    }
+
+    @SuppressLint("CheckResult")
+    public void get(String url, Map headers, Map parameters, Consumer<ResponseBody> subscriber) {
+        getApiInstance().httpGet(url, headers, parameters)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    @SuppressLint("CheckResult")
+    public void post(String url, Map headers, Map parameters, Consumer<ResponseBody> subscriber) {
+        getApiInstance().httpPost(url, headers, parameters)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
     }
 
     public static AppApis getApiInstance() {
