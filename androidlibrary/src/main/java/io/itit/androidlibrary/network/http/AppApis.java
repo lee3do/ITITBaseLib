@@ -24,10 +24,10 @@ public interface AppApis {
 
     @FormUrlEncoded
     @POST()
-    Observable<ResponseBody> httpPost(@Url String url, @FieldMap Map<String,Object> data, @HeaderMap Map<String,Object> header);
+    Observable<ResponseBody> httpPost(@Url String url, @FieldMap Map data, @HeaderMap Map header);
 
     @GET()
-    Observable<ResponseBody> httpGet(@Url String url, @FieldMap Map<String,Object> data, @HeaderMap Map<String,Object> header);
+    Observable<ResponseBody> httpGet(@Url String url, @FieldMap Map data, @HeaderMap Map header);
 
 
     @Streaming
