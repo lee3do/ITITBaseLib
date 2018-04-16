@@ -149,10 +149,10 @@ public class RetrofitProvider {
 
     @SuppressLint("CheckResult")
     public static void get(String url, Map<String,Object> headers, Map<String,Object> parameters, Consumer<ResponseBody> success, Consumer<Throwable> error) {
-        if (headers!=null) {
+        if (headers==null) {
             headers = new HashMap<>();
         }
-        if (parameters!=null) {
+        if (parameters==null) {
             parameters = new HashMap<>();
         }
         getApiInstance().httpGet(url, headers, parameters)
@@ -164,10 +164,10 @@ public class RetrofitProvider {
 
     @SuppressLint("CheckResult")
     public static void post(String url, Map<String,Object> headers, Map<String,Object> parameters, Consumer<ResponseBody> success, Consumer<Throwable> error) {
-        if (headers!=null) {
+        if (headers==null) {
             headers = new HashMap<>();
         }
-        if (parameters!=null) {
+        if (parameters==null) {
             parameters = new HashMap<>();
         }
         getApiInstance().httpPost(url, headers, parameters)
