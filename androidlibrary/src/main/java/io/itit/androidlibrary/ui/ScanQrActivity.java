@@ -21,8 +21,11 @@ public class ScanQrActivity extends AppCompatActivity {
         setContentView(R.layout.activity_scan_qr);
         zXingView = findViewById(R.id.zxingview);
         View back = findViewById(R.id.back);
-        back.setOnClickListener(v -> {
-            finish();
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
         });
         zXingView.setDelegate(new QRCodeView.Delegate() {
             @Override
