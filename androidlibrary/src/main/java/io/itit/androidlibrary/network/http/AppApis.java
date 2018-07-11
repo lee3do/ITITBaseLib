@@ -7,6 +7,7 @@ import io.reactivex.Observable;
 import okhttp3.MultipartBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -25,6 +26,10 @@ public interface AppApis {
     @FormUrlEncoded
     @POST()
     Observable<ResponseBody> httpPost(@Url String url, @FieldMap Map<String,Object> data, @HeaderMap Map<String,Object> header);
+
+    @FormUrlEncoded
+    @POST()
+    Observable<ResponseBody> httpPostWithBody(@Url String url, @Body String body, @HeaderMap Map<String,Object> header);
 
     @GET()
     Observable<ResponseBody> httpGet(@Url String url, @FieldMap Map<String,Object> data, @HeaderMap Map<String,Object> header);
