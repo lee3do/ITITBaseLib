@@ -27,9 +27,8 @@ public interface AppApis {
     @POST()
     Observable<ResponseBody> httpPost(@Url String url, @FieldMap Map<String,Object> data, @HeaderMap Map<String,Object> header);
 
-    @FormUrlEncoded
     @POST()
-    Observable<ResponseBody> httpPostWithBody(@Url String url, @Body String body, @HeaderMap Map<String,Object> header);
+    Observable<ResponseBody> httpPostWithBody(@Url String url, @FieldMap Map<String,Object> data, @HeaderMap Map<String,Object> header,@Body String body);
 
     @GET()
     Observable<ResponseBody> httpGet(@Url String url, @FieldMap Map<String,Object> data, @HeaderMap Map<String,Object> header);

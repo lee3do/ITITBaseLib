@@ -177,6 +177,22 @@ public class RetrofitProvider {
                 .subscribe(success,error);
     }
 
+    @SuppressLint("CheckResult")
+    public static void postWithBody(String url, Map<String,Object> headers, Map<String,Object> parameters, String body, Consumer<ResponseBody> success, Consumer<Throwable> error) {
+        if (headers==null) {
+            headers = new HashMap<>();
+        }
+        if (parameters==null) {
+            parameters = new HashMap<>();
+        }
+        getApiInstance().httpPostWithBody(url, headers, parameters,body)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(success,error);
+    }
+
+
     public static AppApis getApiInstance() {
         if (appApis == null) {
             appApis = getInstance().create(AppApis.class);
