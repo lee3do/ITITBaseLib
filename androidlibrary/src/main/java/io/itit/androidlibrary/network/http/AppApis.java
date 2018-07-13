@@ -5,6 +5,7 @@ import java.util.Map;
 import io.itit.androidlibrary.network.domain.UploadData;
 import io.reactivex.Observable;
 import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -28,7 +29,7 @@ public interface AppApis {
     Observable<ResponseBody> httpPost(@Url String url, @FieldMap Map<String,Object> data, @HeaderMap Map<String,Object> header);
 
     @POST()
-    Observable<ResponseBody> httpPostWithBody(@Url String url, @FieldMap Map<String,Object> data, @HeaderMap Map<String,Object> header,@Body String body);
+    Observable<ResponseBody> httpPostWithBody(@Url String url, @HeaderMap Map<String,Object> header,@Body RequestBody body);
 
     @GET()
     Observable<ResponseBody> httpGet(@Url String url, @FieldMap Map<String,Object> data, @HeaderMap Map<String,Object> header);

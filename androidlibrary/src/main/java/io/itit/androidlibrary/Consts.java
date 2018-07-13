@@ -25,6 +25,7 @@ public class Consts {
         public static final String UpdateUnRead = "UpdateUnRead";
         public static final String TOAST = "TOAST";
         public static final String SHOW_LOADING = "SHOW_LOADING";
+        public static final String MAX_RECORDED = "MAX_RECORDED";
         public static final String PAY_FINISH = "PAY_FINISH";
     }
 

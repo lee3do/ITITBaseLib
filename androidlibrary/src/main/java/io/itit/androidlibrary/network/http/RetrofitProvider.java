@@ -20,6 +20,7 @@ import io.reactivex.schedulers.Schedulers;
 import okhttp3.Cache;
 import okhttp3.FormBody;
 import okhttp3.Interceptor;
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -178,14 +179,12 @@ public class RetrofitProvider {
     }
 
     @SuppressLint("CheckResult")
-    public static void postWithBody(String url, Map<String,Object> headers, Map<String,Object> parameters, String body, Consumer<ResponseBody> success, Consumer<Throwable> error) {
+    public static void postWithBody(String url, Map<String,Object> headers,  String body, Consumer<ResponseBody> success, Consumer<Throwable> error) {
         if (headers==null) {
             headers = new HashMap<>();
         }
-        if (parameters==null) {
-            parameters = new HashMap<>();
-        }
-        getApiInstance().httpPostWithBody(url, headers, parameters,body)
+        RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), body);
+        getApiInstance().httpPostWithBody(url, headers,requestBody)
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

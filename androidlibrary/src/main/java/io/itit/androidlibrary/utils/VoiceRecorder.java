@@ -5,7 +5,6 @@ import android.media.MediaRecorder;
 import com.hwangjr.rxbus.RxBus;
 import com.orhanobut.logger.Logger;
 
-
 import java.io.File;
 import java.util.Date;
 import java.util.UUID;
@@ -39,7 +38,7 @@ public class VoiceRecorder {
     /**
      * 开始录音
      */
-    public void startRecording() {
+    public void startRecording(int maxTime) {
         if (mRecordStatus == RECORD_STATUS_RECORDING) {
             discardRecording();
         }
@@ -56,6 +55,22 @@ public class VoiceRecorder {
             // mRecorder.setAudioSamplingRate(44100);
             mRecorder.setOutputFile(mVoiceFile.getAbsolutePath());
 
+            mRecorder.setOnInfoListener((mr, what, extra) -> {
+                if (what==MediaRecorder.MEDIA_RECORDER_INFO_MAX_DURATION_REACHED) {
+                    Logger.d("已经达到最长录制时间");
+                    if (mRecorder!=null) {
+                        mRecorder.stop();
+                        mRecorder.release();
+                        mRecorder=null;
+                        RxBus.get().post(Consts.BusAction.MAX_RECORDED,this.getVoiceFilePath());
+                    }
+                }
+            });
+
+
+            if (maxTime > 0) {
+                mRecorder.setMaxDuration(maxTime * 1000);
+            }
             mRecorder.prepare();
 
             mStartTime = new Date().getTime();
