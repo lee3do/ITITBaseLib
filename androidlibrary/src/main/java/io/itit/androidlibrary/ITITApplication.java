@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 
+import com.facebook.stetho.Stetho;
 import com.hwangjr.rxbus.RxBus;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
@@ -46,6 +47,7 @@ public class ITITApplication extends Application {
             PreferencesUtils.putString(this, Consts.Pref.DEVICE_ID, UUID.randomUUID().toString());
         }
         appContext = this;
+        Stetho.initializeWithDefaults(this);
     }
 
 

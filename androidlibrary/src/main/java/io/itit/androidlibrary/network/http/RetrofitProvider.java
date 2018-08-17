@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
+import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.google.gson.Gson;
 
 import java.io.File;
@@ -41,6 +42,7 @@ public class RetrofitProvider {
     private static AppApis appApis;
 
     public static boolean needJsonInterceptor = false;
+    public static boolean needStethoInterceptor = false;
     public static boolean needAuthInterceptor = false;
     public static boolean needCache = true;
     public static boolean needLog = true;
@@ -128,6 +130,10 @@ public class RetrofitProvider {
 
             if (needAuthInterceptor) {
                 builder.addInterceptor(new AuthInterceptor());
+            }
+
+            if(needStethoInterceptor){
+                builder.addNetworkInterceptor(new StethoInterceptor());
             }
 
             if (needCache) {

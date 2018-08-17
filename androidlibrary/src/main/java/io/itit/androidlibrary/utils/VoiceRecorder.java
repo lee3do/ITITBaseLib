@@ -54,7 +54,9 @@ public class VoiceRecorder {
             // TODO check the rate
             // mRecorder.setAudioSamplingRate(44100);
             mRecorder.setOutputFile(mVoiceFile.getAbsolutePath());
-
+            if (maxTime > 0) {
+                mRecorder.setMaxDuration(maxTime * 1000);
+            }
             mRecorder.setOnInfoListener((mr, what, extra) -> {
                 if (what==MediaRecorder.MEDIA_RECORDER_INFO_MAX_DURATION_REACHED) {
                     Logger.d("已经达到最长录制时间");
@@ -68,9 +70,7 @@ public class VoiceRecorder {
             });
 
 
-            if (maxTime > 0) {
-                mRecorder.setMaxDuration(maxTime * 1000);
-            }
+
             mRecorder.prepare();
 
             mStartTime = new Date().getTime();
