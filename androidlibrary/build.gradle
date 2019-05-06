@@ -4,7 +4,7 @@ apply plugin: 'com.jfrog.bintray'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         minSdkVersion 19
@@ -84,12 +84,8 @@ dependencies {
     compile 'com.facebook.stetho:stetho:1.5.0'
     compile 'com.facebook.stetho:stetho-okhttp3:1.5.0'
     compile 'com.facebook.stetho:stetho-js-rhino:1.5.0'
-    api('com.cysion:ImagePicker:1.0.6'){
-        exclude group: 'com.android.support'
-    }
-    api('com.android.support:exifinterface:26.0.1'){
-        exclude group: 'com.android.support'
-    }
+    api('com.cysion:ImagePicker:1.0.6')
+    api('com.android.support:exifinterface:26.0.1')
 }
 
 apply from: "bintrayUpload.gradle"
