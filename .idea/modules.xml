@@ -3,11 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ITITBaseLib.iml" filepath="$PROJECT_DIR$/ITITBaseLib.iml" />
-      <module fileurl="file://$USER_HOME$/Library/Mobile Documents/com~apple~CloudDocs/ITIT/ITITBaseLib/ITITBaseLib.iml" filepath="$USER_HOME$/Library/Mobile Documents/com~apple~CloudDocs/ITIT/ITITBaseLib/ITITBaseLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/androidlibrary/androidlibrary.iml" filepath="$PROJECT_DIR$/androidlibrary/androidlibrary.iml" />
-      <module fileurl="file://$USER_HOME$/Library/Mobile Documents/com~apple~CloudDocs/ITIT/ITITBaseLib/androidlibrary/androidlibrary.iml" filepath="$USER_HOME$/Library/Mobile Documents/com~apple~CloudDocs/ITIT/ITITBaseLib/androidlibrary/androidlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$USER_HOME$/Library/Mobile Documents/com~apple~CloudDocs/ITIT/ITITBaseLib/app/app.iml" filepath="$USER_HOME$/Library/Mobile Documents/com~apple~CloudDocs/ITIT/ITITBaseLib/app/app.iml" />
     </modules>
   </component>
 </project>
