@@ -4,7 +4,6 @@ apply plugin: 'com.jfrog.bintray'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '27.0.3'
 
     defaultConfig {
         minSdkVersion 19
@@ -51,12 +50,12 @@ dependencies {
     compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
     compile 'com.afollestad.material-dialogs:core:0.9.4.7'
     compile 'io.github.rockerhieu:emojicon:1.4.1'
-    compile 'me.yokeyword:fragmentation:1.1.5'
-    compile 'me.yokeyword:fragmentation-swipeback:1.1.5'
+    compile 'me.yokeyword:fragmentation:1.3.6'
+    compile 'me.yokeyword:fragmentation-swipeback:1.3.6'
     compile 'org.greenrobot:greendao:3.2.2'
     compile 'io.itit.mvvm:library:1.1.5'
     compile 'cn.trinea.android.common:trinea-android-common:4.2.15'
-    compile 'com.hwangjr.rxbus:rxbus:1.0.6'
+    compile 'com.hwangjr.rxbus:rxbus:2.0.1'
     compile 'com.orhanobut:logger:2.2.0'
     compile 'com.alibaba:fastjson:1.2.38'
     compile 'com.android.support.constraint:constraint-layout:1.1.3'
@@ -76,7 +75,7 @@ dependencies {
     compile 'com.baoyz.swipemenulistview:library:1.3.0'
     compile 'com.github.GrenderG:Toasty:1.2.8'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    compile 'com.github.ybq:Android-SpinKit:1.1.0'
+    implementation 'com.github.ybq:Android-SpinKit:1.2.0'
     compile 'com.contrarywind:Android-PickerView:4.1.6'
     compile "me.leolin:ShortcutBadger:1.1.19@aar"
     implementation 'cn.bingoogolapple:bga-qrcode-zxing:1.2.1'
