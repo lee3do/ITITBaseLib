@@ -244,7 +244,7 @@ public class ItitSearchView extends LinearLayout {
         boolean onQueryTextSubmit(String query);
     }
 
-    public static class SearchAutoComplete extends android.support.v7.widget.AppCompatAutoCompleteTextView {
+    public static class SearchAutoComplete extends androidx.appcompat.widget.AppCompatAutoCompleteTextView {
         private int mThreshold;
         private ItitSearchView mSearchView;
 

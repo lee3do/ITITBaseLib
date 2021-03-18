@@ -1,11 +1,11 @@
 package io.itit.androidlibrary.ui;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.hwangjr.rxbus.RxBus;
 
+import androidx.appcompat.app.AppCompatActivity;
 import cn.bingoogolapple.qrcode.core.QRCodeView;
 import cn.bingoogolapple.qrcode.zxing.ZXingView;
 import io.itit.androidlibrary.Consts;

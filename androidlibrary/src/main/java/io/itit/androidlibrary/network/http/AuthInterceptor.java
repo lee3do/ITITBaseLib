@@ -1,6 +1,6 @@
 package io.itit.androidlibrary.network.http;
 
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 
 import com.alibaba.fastjson.JSON;
 import com.orhanobut.logger.Logger;

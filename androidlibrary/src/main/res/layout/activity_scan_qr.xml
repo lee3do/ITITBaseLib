@@ -26,7 +26,7 @@
         app:qrcv_isOnlyDecodeScanBoxArea="true"
         app:qrcv_topOffset="90dp"/>
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="44dp"
@@ -52,6 +52,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textSize="19sp"/>
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
 </RelativeLayout>
